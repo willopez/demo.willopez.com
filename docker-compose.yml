@@ -1,0 +1,53 @@
+version: '2.3'
+
+services:
+  demo.willopez.com:
+    depends_on:
+      - admin.demo.willopez.com
+    container_name: demo.willopez.com
+    image: willopez/demo.willopez.com
+    restart: unless-stopped
+    environment:
+      VIRTUAL_HOST: demo.willopez.com
+    ports:
+      - 80
+    networks:
+      - proxy
+      - internal
+
+  admin.demo.willopez.com:
+    depends_on:
+      - db.demo.willopez.com
+    container_name: admin.demo.willopez.com
+    image: willopez/admin.demo.willopez.com
+    restart: unless-stopped
+    volumes:
+      - wp_data:/var/www/wp-content
+    environment:
+      VIRTUAL_HOST: admin.demo.willopez.com
+      FS_METHOD: direct
+      DB_HOST: db.demo.willopez.com
+    ports:
+      - 80
+    networks:
+      - proxy
+      - internal
+
+  db.demo.willopez.com:
+    container_name: db.demo.willopez.com
+    image: mariadb:10.3
+    restart: unless-stopped
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - internal
+
+volumes:
+  wp_data:
+  db_data:
+
+networks:
+  proxy:
+    external: true
+  internal:
+    external: true

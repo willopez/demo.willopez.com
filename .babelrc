@@ -1,0 +1,28 @@
+{
+  "plugins": [
+    "react-native-web/babel",
+    "transform-class-properties",
+    [
+      "module-resolver",
+      {
+        "alias": {
+          "~": "./src"
+        }
+      }
+    ]
+  ],
+  "presets": [
+    "stage-2",
+    "react",
+    "react-native",
+    [
+      "env",
+      {
+        "targets": {
+          "node": "current",
+          "browsers": ["last 2 Chrome versions"]
+        }
+      }
+    ]
+  ]
+}

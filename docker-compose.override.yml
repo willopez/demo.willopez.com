@@ -1,0 +1,21 @@
+# Development environment overrides
+version: '2.3'
+
+services:
+  demo.willopez.com:
+    environment:
+      VIRTUAL_HOST: demo.willopez.local
+  admin.demo.willopez.com:
+    environment:
+      VIRTUAL_HOST: admin.demo.willopez.local
+      DB_NAME: wp
+      DB_USER: wp
+      DB_PASSWORD: wp
+      WP_DEBUG: "true"
+  db.demo.willopez.com:
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+      MYSQL_RANDOM_ROOT_PASSWORD: "yes"
+      MYSQL_DATABASE: wp
+      MYSQL_USER: wp
+      MYSQL_PASSWORD: wp
