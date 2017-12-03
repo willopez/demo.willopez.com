@@ -6,14 +6,14 @@ services:
     environment:
       LETSENCRYPT_HOST: demo.willopez.com,www.demo.willopez.com
       LETSENCRYPT_EMAIL: will@willopez.com
-  admin.demo.willopez.com:
+  admindemo.willopez.com:
     environment:
       DB_NAME: prod_wp
       DB_USER: prod_wp
       DB_PASSWORD: prod_wp
       WP_REDIS_HOST: wp-redis
-      WP_CACHE_KEY_SALT: admin.demo.willopez.com
-      LETSENCRYPT_HOST: admin.demo.willopez.com
+      WP_CACHE_KEY_SALT: admindemo.willopez.com
+      LETSENCRYPT_HOST: admindemo.willopez.com
       LETSENCRYPT_EMAIL: will@willopez.com
   db.demo.willopez.com:
     environment:
