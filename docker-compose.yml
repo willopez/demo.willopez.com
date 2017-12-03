@@ -3,7 +3,7 @@ version: '2.3'
 services:
   demo.willopez.com:
     depends_on:
-      - admin.demo.willopez.com
+      - admindemo.willopez.com
     container_name: demo.willopez.com
     image: willopez/demo.willopez.com
     restart: unless-stopped
@@ -15,16 +15,16 @@ services:
       - proxy
       - internal
 
-  admin.demo.willopez.com:
+  admindemo.willopez.com:
     depends_on:
       - db.demo.willopez.com
-    container_name: admin.demo.willopez.com
+    container_name: admindemo.willopez.com
     image: willopez/admin.demo.willopez.com
     restart: unless-stopped
     volumes:
       - wp_data:/var/www/wp-content
     environment:
-      VIRTUAL_HOST: admin.demo.willopez.com
+      VIRTUAL_HOST: admindemo.willopez.com
       FS_METHOD: direct
       DB_HOST: db.demo.willopez.com
     ports:

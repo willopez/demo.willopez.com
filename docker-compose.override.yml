@@ -5,9 +5,9 @@ services:
   demo.willopez.com:
     environment:
       VIRTUAL_HOST: demo.willopez.local
-  admin.demo.willopez.com:
+  admindemo.willopez.com:
     environment:
-      VIRTUAL_HOST: admin.demo.willopez.local
+      VIRTUAL_HOST: admindemo.willopez.local
       DB_NAME: wp
       DB_USER: wp
       DB_PASSWORD: wp
